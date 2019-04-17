@@ -1,0 +1,12 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: route_config
+        uri: http://www.ityouknow.com
+        predicates:
+        - Path=/spring-cloud
