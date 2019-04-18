@@ -10,3 +10,7 @@ spring:
         uri: http://www.ityouknow.com
         predicates:
         - Path=/spring-cloud
+      - id: route_consul
+        uri: http://localhost:8091
+        predicates:
+        - Path=/getPort
