@@ -1,0 +1,21 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: springcloud-gateway-consul
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        hostname: localhost
+        service-name: ${spring.application.name}
+        tags: version=1.0,author=JackyChen
+        health-check-path: /actuator/health
+        health-check-interval: 60s
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+    gateway:
+      discovery:
+        locator:
+          enabled: true
